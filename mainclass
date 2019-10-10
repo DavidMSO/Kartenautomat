@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class KartenAutomat {
+   private int kartenpreis;
+   private int einbezahlterBetrag;
+   private int anzahlKarten;
+   private int gesamtpreis;
+   private int wechselgeld;
+   private int x;
+   private int eingeworfenesGeld;
+   private int rückgeld;
+    
+   public KartenAutomat() {
+       kartenpreis = 20;
+       zeigeMenu();
+   }
+   
+   public void druckeKarte() {
+       System.out.println("___________________________________________");
+       System.out.println("| Eintrittskarte für " + anzahlKarten + " Personen.          |");
+       System.out.println("| Gesamtpreiß der Karte: " + gesamtpreis + "€               |");
+       System.out.println("___________________________________________");
+    }
+   
+   public void zeigeMenu() {
+       System.out.println("Willkommen im Phantasialand! \n \n Eine Eintittskarte kostet: "
+                            + kartenpreis + "€. \n Wieviele Karten möchtest sie haben?" ); 
+       Scanner input = new Scanner (System.in);
+       anzahlKarten = input.nextInt();
+       gesamtpreis = kartenpreis * anzahlKarten;
+       System.out.println("Das macht dann: " + gesamtpreis + "€ .");
+       nimmGeldAn();
+    }
+    
+   public void nimmGeldAn() {
+       x = gesamtpreis;
+       
+       while (x > 0){
+        Scanner input = new Scanner (System.in);
+        eingeworfenesGeld = input.nextInt();
+        x = x - eingeworfenesGeld;
+        if (x>0){
+            System.out.println("Es fehlen noch " + x + "€.");
+        }
+        if(x<0){
+            rückgeld = x;
+            System.out.println("Ihre Karten werden gedruckt.");
+            gibWechselgeld();
+        }
+        else{
+            System.out.println("Ihre Karten werden gedruckt.");
+        }
+       }
+       druckeKarte();
+    }
+   
+   public void gibWechselgeld() {
+       rückgeld = rückgeld - 2*rückgeld;
+       System.out.println("Ihr Rückgeld beträgt " + rückgeld +"€.");
+    }
+}
