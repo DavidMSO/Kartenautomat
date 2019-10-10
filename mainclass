@@ -46,7 +46,7 @@ public class KartenAutomat {
             System.out.println("Ihre Karten werden gedruckt.");
             gibWechselgeld();
         }
-        else{
+        if(x<=0){
             System.out.println("Ihre Karten werden gedruckt.");
         }
        }
