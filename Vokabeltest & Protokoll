@@ -1,0 +1,56 @@
+Fachbegriffe Informatik
+
+Konstruktor
+Variable
+  globale Variablen
+  lokale Variablen
+  Initiger
+  String
+  Float
+  Boolean
+Funktion
+Schleifen
+Klassen
+Objekt(=> Instanzen)
+Editor
+Konsole
+Java
+private/public
+Instanz
+Datentyp
+Wertzuweisung
+Ausdruck
+Rückgabetyp
+Rückgabewet
+Bedingung
+Parameter
+
+Alliteration
+Anapher
+Metapher
+Climax
+Hyperbel
+Vergleich
+Elipse
+Hyperbaton
+Personifikation
+Lautmalerei
+
+Protokoll:
+Herr Kühnert kontrolliert die Hausaufgaben
+Herr Kühnert erleutert die Konsequenzen von nicht gemachten Hausaufgaben
+  2x vergessen 1 und 2schwer möglich
+  3x 3 fraglich
+  3x  Hausmeisterstunde
+Vokabetest am Donnerstag nach den Ferien
+AA: SuS sollen Vokabeln die sie bereits gelernt haben, auf Java bzw. Programmierung bezogen, sammeln
+Vokabeln werdenfestgelegt und heraisch eingeordnet
+Hausaufgaben werden besprochen und zusammen gemacht
+void druckeKarte()
+void zeigeMenu()
+void berechneGesamtpreis()
+Neu gelernt Scanner=> erlaubt eingabe über die Tastatur
+  import java.util.Scanner
+  Scanner input = new Scanner (System.in);
+  
+  
