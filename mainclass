@@ -1,60 +1,108 @@
 import java.util.Scanner;
 public class KartenAutomat {
-   private int kartenpreis;
-   private int einbezahlterBetrag;
-   private int anzahlKarten;
-   private int gesamtpreis;
-   private int wechselgeld;
-   private int x;
-   private int eingeworfenesGeld;
-   private int rückgeld;
-    
-   public KartenAutomat() {
-       kartenpreis = 20;
-       zeigeMenu();
-   }
-   
-   public void druckeKarte() {
-       System.out.println("___________________________________________");
-       System.out.println("| Eintrittskarte für " + anzahlKarten + " Personen.          |");
-       System.out.println("| Gesamtpreiß der Karte: " + gesamtpreis + "€               |");
-       System.out.println("___________________________________________");
+    private int kartenpreis;
+    private int einbezahlterBetrag;
+    private int anzahlKarten;
+    private int gesamtpreis;
+    private int wechselgeld;
+    private int x;
+    private int eingeworfenesGeld;
+    private int rückgeld;
+
+    public KartenAutomat() {
+        kartenpreis = 20;
+        zeigeMenu();
     }
-   
-   public void zeigeMenu() {
-       System.out.println("Willkommen im Phantasialand! \n \n Eine Eintittskarte kostet: "
-                            + kartenpreis + "€. \n Wieviele Karten möchtest sie haben?" ); 
-       Scanner input = new Scanner (System.in);
-       anzahlKarten = input.nextInt();
-       gesamtpreis = kartenpreis * anzahlKarten;
-       System.out.println("Das macht dann: " + gesamtpreis + "€ .");
-       nimmGeldAn();
+
+    public void druckeKarte() {
+        System.out.println("___________________________________________");
+        System.out.println("| Eintrittskarte für " + anzahlKarten + " Personen.          |");
+        System.out.println("| Gesamtpreiß der Karte: " + gesamtpreis + "€               |");
+        System.out.println("___________________________________________");
     }
-    
-   public void nimmGeldAn() {
-       x = gesamtpreis;
-       
-       while (x > 0){
+
+    public void zeigeMenu() {
+        System.out.println("Willkommen im Phantasialand! \n \n Eine Eintittskarte kostet: "
+            + kartenpreis + "€. \n Wieviele Karten möchtest sie haben?" ); 
         Scanner input = new Scanner (System.in);
-        eingeworfenesGeld = input.nextInt();
-        x = x - eingeworfenesGeld;
-        if (x>0){
-            System.out.println("Es fehlen noch " + x + "€.");
-        }
-        if(x<0){
-            rückgeld = x;
-            System.out.println("Ihre Karten werden gedruckt.");
-            gibWechselgeld();
-        }
-        if(x<=0){
-            System.out.println("Ihre Karten werden gedruckt.");
-        }
-       }
-       druckeKarte();
+        anzahlKarten = input.nextInt();
+        gesamtpreis = kartenpreis * anzahlKarten;
+        System.out.println("Das macht dann: " + gesamtpreis + "€ .");
+        nimmGeldAn();
     }
-   
-   public void gibWechselgeld() {
-       rückgeld = rückgeld - 2*rückgeld;
-       System.out.println("Ihr Rückgeld beträgt " + rückgeld +"€.");
+
+    public void nimmGeldAn() {
+        x = gesamtpreis;
+
+        while (x > 0){
+            Scanner input = new Scanner (System.in);
+            eingeworfenesGeld = input.nextInt();
+            if (eingeworfenesGeld == 1 || eingeworfenesGeld ==  2 || eingeworfenesGeld == 5 || eingeworfenesGeld == 10 || eingeworfenesGeld ==  20 || eingeworfenesGeld == 50 || 
+            eingeworfenesGeld == 100 || eingeworfenesGeld == 200 || eingeworfenesGeld ==  500) {
+                x = x - eingeworfenesGeld;
+                if (x>0){
+                    System.out.println("Es fehlen noch " + x + "€.");
+                }
+                if(x<0){
+                    rückgeld = x;
+                    System.out.println("Ihre Karten werden gedruckt.");
+                    gibWechselgeld();
+                }   
+                if(x<=0){
+                    System.out.println("Ihre Karten werden gedruckt.");
+                }
+            }
+            else{
+                System.out.println("Das ist kein Zulässiges Geld. Der zu Zahlende Betrag beträgt " + x + "€.");
+            }
+        }
+        druckeKarte();
+    }
+
+    public void gibWechselgeld() {
+        rückgeld = rückgeld * -1;
+
+        System.out.println("Sie bekommen " + rückgeld + " Rückgeld.");
+
+        while (rückgeld > 0) {
+            if (rückgeld >= 500) {
+                rückgeld -= 500;
+                System.out.println("500 Euro Rückgeld");
+
+            } else if (rückgeld >= 200) {
+                rückgeld -= 200;
+                System.out.println("200 Euro Rückgeld");
+
+            } else if (rückgeld >= 100) {
+                rückgeld -= 100;
+                System.out.println("100 Euro Rückgeld");
+
+            } else if (rückgeld >= 50) {
+                rückgeld -= 50;
+                System.out.println("50 Euro Rückgeld");
+
+            } else if (rückgeld >= 20) {
+                rückgeld -= 20;
+                System.out.println("20 Euro Rückgeld");
+
+            } else if (rückgeld >= 10) {
+                rückgeld -= 10;
+                System.out.println("10 Euro Rückgeld");
+
+            } else if (rückgeld >= 5) {
+                rückgeld -= 5;
+                System.out.println("5 Euro Rückgeld");
+
+            } else if (rückgeld >= 2) {
+                rückgeld -= 2;
+                System.out.println("2 Euro Rückgeld");
+
+            } else if (rückgeld >= 1) {
+                rückgeld -= 1;
+                System.out.println("1 Euro Rückgeld");
+
+            }
+
+        }
     }
 }
